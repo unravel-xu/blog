@@ -13,6 +13,7 @@ jobs:
         run: |
           response=$(curl -s -o /dev/null -w "%{http_code}" -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}")
           echo "Response code: $response"
-          if [ "$response" != "200" ]; then
+          if [ "$code" -lt 200 ] || [ "$code" -ge 300 ]; then
+            echo "Deploy hook failed with status: $code"
             exit 1
           fi
