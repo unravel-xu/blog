@@ -2,9 +2,9 @@ name: Fuwari-yCENzh CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ] # 我觉得没必要执行，特别修改为main
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
 
 concurrency:
